@@ -1,4 +1,4 @@
-const { MissingParamError, UnauthorizedError } = require('../../utils/errors')
+const { MissingParamError, UnauthorizedError } = require('../../../utils/errors')
 const SignInUseCase = require('./signin-usecase')
 
 const makeEncrypter = () => {

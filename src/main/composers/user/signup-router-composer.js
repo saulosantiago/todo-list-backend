@@ -1,11 +1,11 @@
-const SignUpRouter = require('../../presentation/routers/signup-router')
-const SignUpUseCase = require('../../domain/usecases/signup-usecase')
-const EmailValidator = require('../../utils/helpers/email-validator')
-const CreateUserRepository = require('../../infra/repositories/create-user-repository')
-const UpdateAccessTokenRepository = require('../../infra/repositories/update-access-token-repository')
-const Encrypter = require('../../utils/helpers/encrypter')
-const TokenGenerator = require('../../utils/helpers/token-generator')
-const env = require('../config/env')
+const SignUpRouter = require('../../../presentation/routers/user/signup-router')
+const SignUpUseCase = require('../../../domain/usecases/user/signup-usecase')
+const EmailValidator = require('../../../utils/helpers/email-validator')
+const CreateUserRepository = require('../../../infra/repositories/create-user-repository')
+const UpdateAccessTokenRepository = require('../../../infra/repositories/update-access-token-repository')
+const Encrypter = require('../../../utils/helpers/encrypter')
+const TokenGenerator = require('../../../utils/helpers/token-generator')
+const env = require('../../config/env')
 
 module.exports = class SignUpRouterComposer {
   static compose () {

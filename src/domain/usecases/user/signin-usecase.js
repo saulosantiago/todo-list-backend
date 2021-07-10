@@ -1,4 +1,4 @@
-const { MissingParamError, UnauthorizedError } = require('../../utils/errors')
+const { MissingParamError, UnauthorizedError } = require('../../../utils/errors')
 
 module.exports = class SignInUseCase {
   constructor ({ loadUserByEmailRepository, updateAccessTokenRepository, encrypter, tokenGenerator } = {}) {
