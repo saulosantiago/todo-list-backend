@@ -11,6 +11,7 @@ module.exports = class SignUpUseCase {
     const user = await this.createUserRepository.create(name, email, hashedPassword)
     const accessToken = await this.tokenGenerator.generate(user._id)
     await this.updateAccessTokenRepository.update(user._id, accessToken)
+    delete user.password
     return { user, accessToken }
   }
 }

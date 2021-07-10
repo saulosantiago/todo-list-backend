@@ -84,10 +84,9 @@ describe('Auth UseCase', () => {
   })
 
   test('Should call Encrypter with correct values', async () => {
-    const { sut, createUserRepositorySpy, encrypterSpy } = makeSut()
+    const { sut, encrypterSpy } = makeSut()
     await sut.signUp('any_name', 'valid_email@mail.com', 'any_password')
     expect(encrypterSpy.password).toBe('any_password')
-    expect(encrypterSpy.hashedPassword).toBe(createUserRepositorySpy.user.password)
   })
 
   test('Should call TokenGenerator with correct userId', async () => {
