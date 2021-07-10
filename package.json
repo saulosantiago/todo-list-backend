@@ -4,8 +4,11 @@
   "description": "todo-list-backend",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
-  },
+    "test": "jest --colors --noStackTrace --passWithNoTests --runInBand",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
+    "test:staged": "npm test -- --findRelatedTests --silent",
+    "test:ci": "npm test -- --coverage --silent"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/saulosantiago/todo-list-backend.git"
