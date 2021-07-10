@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/saulosantiago/todo-list-backend#readme",
   "devDependencies": {
-    "git-commit-msg-linter": "^3.2.6"
+    "git-commit-msg-linter": "^3.2.6",
+    "standard": "^16.0.3"
   }
 }
