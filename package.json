@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/saulosantiago/todo-list-backend/issues"
   },
-  "homepage": "https://github.com/saulosantiago/todo-list-backend#readme"
+  "homepage": "https://github.com/saulosantiago/todo-list-backend#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^3.2.6"
+  }
 }
