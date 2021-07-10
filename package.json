@@ -8,7 +8,7 @@
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:staged": "npm test -- --findRelatedTests --silent",
     "test:ci": "npm test -- --coverage --silent"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/saulosantiago/todo-list-backend.git"
@@ -21,7 +21,9 @@
   "homepage": "https://github.com/saulosantiago/todo-list-backend#readme",
   "devDependencies": {
     "git-commit-msg-linter": "^3.2.6",
+    "husky": "^7.0.1",
     "jest": "^27.0.6",
+    "lint-staged": "^11.0.0",
     "standard": "^16.0.3"
   }
 }
