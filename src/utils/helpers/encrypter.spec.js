@@ -13,7 +13,7 @@ const MissingParamError = require('../errors/missing-param-error')
 const Encrypter = require('./encrypter')
 
 const makeSut = () => {
-  const salt = 'any_salt'
+  const salt = 10
   const encrypter = new Encrypter(salt)
   bcrypt.hashedValue = 'hashed_value'
   return encrypter
