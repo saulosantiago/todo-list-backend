@@ -17,6 +17,15 @@ module.exports = class HttpResponse {
     }
   }
 
+  static conflictErrorRequest (error) {
+    return {
+      statusCode: 409,
+      body: {
+        error: error.message
+      }
+    }
+  }
+
   static serverError () {
     return {
       statusCode: 500,

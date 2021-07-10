@@ -1,5 +1,5 @@
 const SignUpRouter = require('./signup-router')
-const { MissingParamError, InvalidParamError } = require('../../utils/errors')
+const { MissingParamError, InvalidParamError, EmailAlreadyExistsError } = require('../../utils/errors')
 const { ServerError } = require('../errors')
 
 const makeSut = () => {
@@ -138,6 +138,24 @@ describe('SignUp Router', () => {
     const httpResponse = await sut.route(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body.error).toBe(new InvalidParamError('email').message)
+  })
+
+  test('Should return 409 if an existing email is provided', async () => {
+    const { sut, signUpUseCaseSpy } = makeSut()
+    const existingEmail = 'used_email@mail.com'
+    signUpUseCaseSpy.signUp = async () => {
+      throw new EmailAlreadyExistsError(existingEmail)
+    }
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        email: existingEmail,
+        password: 'any_password'
+      }
+    }
+    const httpResponse = await sut.route(httpRequest)
+    expect(httpResponse.statusCode).toBe(409)
+    expect(httpResponse.body.error).toBe(new EmailAlreadyExistsError(existingEmail).message)
   })
 
   test('Should call EmailValidator with correct email', async () => {

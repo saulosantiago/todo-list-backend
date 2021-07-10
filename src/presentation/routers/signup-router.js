@@ -25,6 +25,9 @@ module.exports = class SignUpRouter {
       const result = await this.signUpUseCase.signUp(name, email, password)
       return HttpResponse.ok(result)
     } catch (error) {
+      if(error.name == 'EmailAlreadyExistsError'){
+        return HttpResponse.conflictErrorRequest(error)
+      }
       return HttpResponse.serverError()
     }
   }
