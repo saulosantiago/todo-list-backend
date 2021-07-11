@@ -1,8 +1,8 @@
 const request = require('supertest')
-const app = require('../config/app')
-const TokenGenerator = require('../../utils/helpers/token-generator')
-const env = require('../config/env')
-const MongoHelper = require('../../infra/helpers/mongo-helper')
+const app = require('../../config/app')
+const TokenGenerator = require('../../../utils/helpers/token-generator')
+const env = require('../../config/env')
+const MongoHelper = require('../../../infra/helpers/mongo-helper')
 let userModel
 
 const tokenGenerator = new TokenGenerator(env.tokenSecret)
