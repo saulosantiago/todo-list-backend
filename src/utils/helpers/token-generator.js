@@ -8,4 +8,8 @@ module.exports = class TokenGenerator {
   async generate (id) {
     return jwt.sign({ _id: id }, this.secret)
   }
+
+  async verify (token) {
+    return jwt.verify(token, this.secret)
+  }
 }

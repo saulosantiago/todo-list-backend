@@ -19,6 +19,7 @@ module.exports = class SignInUseCase {
     const isValid = user && await this.encrypter.compare(password, user.password)
     if (isValid) {
       delete user.password
+      delete user.accessToken
       const accessToken = await this.tokenGenerator.generate(user._id)
       await this.updateAccessTokenRepository.update(user._id, accessToken)
       return { user, accessToken }
