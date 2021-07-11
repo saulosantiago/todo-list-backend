@@ -11,9 +11,6 @@ module.exports = class SignOutRouter {
       const result = await this.signOutUseCase.signOut(id)
       return HttpResponse.ok(result)
     } catch (error) {
-      if(error.name == "UnauthorizedError"){
-        return HttpResponse.unauthorizedError()
-      }
       return HttpResponse.serverError()
     }
   }
