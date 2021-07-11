@@ -21,7 +21,7 @@ const makeSut = () => {
   }
 }
 
-describe('SignIn UseCase', () => {
+describe('List project UseCase', () => {
   test('Should call ListProjectRepository with correct name and userId', async () => {
     const { sut, listProjectRepositorySpy } = makeSut()
     await sut.list('any_id')

@@ -7,7 +7,7 @@ let projectModel, accessToken
 
 const tokenGenerator = new TokenGenerator(env.tokenSecret)
 
-describe('Sign out Routes', () => {
+describe('CreateProject Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
     projectModel = await MongoHelper.getCollection('projects')

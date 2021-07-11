@@ -28,7 +28,8 @@ module.exports = class ExpressRouterAdapter {
               body: req.body,
               user: {
                 id: result._id
-              }
+              },
+              params: req.params
             }
             const httpResponse = await router.route(httpRequest)
             return res.status(httpResponse.statusCode).json(httpResponse.body)

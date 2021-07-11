@@ -7,7 +7,7 @@ let projectModel, accessToken, userId
 
 const tokenGenerator = new TokenGenerator(env.tokenSecret)
 
-describe('ListProject Routes', () => {
+describe('DeleteProject Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
     projectModel = await MongoHelper.getCollection('projects')
@@ -36,13 +36,12 @@ describe('ListProject Routes', () => {
   })
 
   test('Should return 200 when valid parameters are provided', async () => {
-    projectModel.insertOne({
+    const project = await projectModel.insertOne({
       name: 'any_name',
-      user_id: userId,
-      tasks: []
+      user_id: userId
     })
     await request(app)
-      .get('/api/projects')
+      .delete(`/api/projects/${project.ops[0]._id}`)
       .send()
       .set('Authorization', `Bearer ${accessToken}`)
       .expect(200)
