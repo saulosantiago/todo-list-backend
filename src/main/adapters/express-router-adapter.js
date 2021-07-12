@@ -1,5 +1,5 @@
 const TokenGenerator = require('../../utils/helpers/token-generator')
-const LoadUserByIdRepository = require('../../infra/repositories/load-user-by-id-repository')
+const LoadUserByIdRepository = require('../../infra/repositories/user/load-user-by-id-repository')
 const { UnauthorizedError } = require('../../presentation/errors')
 const env = require('../config/env')
 

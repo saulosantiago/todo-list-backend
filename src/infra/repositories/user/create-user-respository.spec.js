@@ -1,6 +1,6 @@
-const MongoHelper = require('../helpers/mongo-helper')
+const MongoHelper = require('../../helpers/mongo-helper')
 const CreateUserRepository = require('./create-user-repository')
-const { EmailAlreadyExistsError } = require('../../utils/errors')
+const { EmailAlreadyExistsError } = require('../../../utils/errors')
 let userModel
 
 const makeSut = () => {

@@ -1,4 +1,4 @@
-const MongoHelper = require('../helpers/mongo-helper')
+const MongoHelper = require('../../helpers/mongo-helper')
 
 module.exports = class UpdateAccessTokenRepository {
   async update (userId, accessToken) {

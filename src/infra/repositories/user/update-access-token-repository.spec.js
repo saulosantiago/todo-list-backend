@@ -1,4 +1,4 @@
-const MongoHelper = require('../helpers/mongo-helper')
+const MongoHelper = require('../../helpers/mongo-helper')
 const UpdateAccessTokenRepository = require('./update-access-token-repository')
 let userModel, fakeUserId
 
