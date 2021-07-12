@@ -1,5 +1,5 @@
 const EditTaskRouter = require('./edit-task-router')
-const { ServerError } = require('../../errors')
+const { ServerError } = require('../../../errors')
 
 const makeSut = () => {
   const editTaskUseCaseSpy = makeEditTaskUseCase()

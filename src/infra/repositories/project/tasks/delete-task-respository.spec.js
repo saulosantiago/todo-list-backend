@@ -1,4 +1,4 @@
-const MongoHelper = require('../../helpers/mongo-helper')
+const MongoHelper = require('../../../helpers/mongo-helper')
 const DeleteTaskRepository = require('./delete-task-repository')
 let projectModel
 

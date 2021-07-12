@@ -1,6 +1,6 @@
 const CreateTaskRouter = require('./create-task-router')
-const { MissingParamError } = require('../../../utils/errors')
-const { ServerError } = require('../../errors')
+const { MissingParamError } = require('../../../../utils/errors')
+const { ServerError } = require('../../../errors')
 
 const makeSut = () => {
   const createTaskUseCaseSpy = makeCreateTaskUseCase()

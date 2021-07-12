@@ -1,13 +1,13 @@
 const request = require('supertest')
-const app = require('../../config/app')
-const TokenGenerator = require('../../../utils/helpers/token-generator')
-const env = require('../../config/env')
-const MongoHelper = require('../../../infra/helpers/mongo-helper')
+const app = require('../../../config/app')
+const TokenGenerator = require('../../../../utils/helpers/token-generator')
+const env = require('../../../config/env')
+const MongoHelper = require('../../../../infra/helpers/mongo-helper')
 let projectModel, accessToken, userId
 
 const tokenGenerator = new TokenGenerator(env.tokenSecret)
 
-describe('CreateTask Routes', () => {
+describe('EditProject Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL)
     projectModel = await MongoHelper.getCollection('projects')
@@ -38,17 +38,15 @@ describe('CreateTask Routes', () => {
   test('Should return 200 when valid parameters are provided', async () => {
     const project = await projectModel.insertOne({
       name: 'any_name',
-      user_id: userId,
-      tasks: []
+      user_id: userId
     })
-    const response = await request(app)
-      .post(`/api/projects/${project.ops[0]._id}/tasks`)
+    await request(app)
+      .put(`/api/projects/${project.ops[0]._id}`)
       .send({
-        description: 'the_description'
+        name: 'updated_name'
       })
       .set('Authorization', `Bearer ${accessToken}`)
       .expect(200)
-    expect(response.body.tasks[0].description).toBe('the_description')
   })
 
   test('Should return 401 when invalid credentials are provided', async () => {

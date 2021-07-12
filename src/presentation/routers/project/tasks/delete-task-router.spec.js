@@ -1,5 +1,5 @@
 const DeleteTaskRouter = require('./delete-task-router')
-const { ServerError } = require('../../errors')
+const { ServerError } = require('../../../errors')
 
 const makeSut = () => {
   const deleteTaskUseCaseSpy = makeDeleteTaskUseCase()
